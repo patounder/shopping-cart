@@ -3,4 +3,4 @@
 ## Tecnologies Used:
 
 - Jetty
-- Annotations: Controller
+- Annotations: RestController
