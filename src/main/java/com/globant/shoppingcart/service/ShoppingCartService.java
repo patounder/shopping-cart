@@ -13,8 +13,8 @@ public class ShoppingCartService {
         this.shoppingCartRepository = shoppingCartRepository;
     }
 
-    public Cart getCartWith(String sesionId){
-        return shoppingCartRepository.findBy(sesionId);
+    public Cart getCartWith(String sessionId){
+        return shoppingCartRepository.findBy(sessionId);
     }
 
 }

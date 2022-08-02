@@ -2,18 +2,18 @@ package com.globant.shoppingcart.dto;
 
 public class Cart {
 
-    private String sesionId;
+    private String sessionId;
 
-    public Cart(String sesionId) {
+    public Cart(String sessionId) {
         super();
-        this.sesionId = sesionId;
+        this.sessionId = sessionId;
     }
 
-    public String getSesionId() {
-        return sesionId;
+    public String getSessionId() {
+        return sessionId;
     }
 
-    public void setSesionId(String sesionId) {
-        this.sesionId = sesionId;
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
 }
