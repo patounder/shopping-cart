@@ -20,7 +20,7 @@ public class ShoppingCartController {
         return new Cart("id-session-res");
     }
 
-    @GetMapping(value = "/session-id/{sesionId}", produces = "application/json")
+    @GetMapping(value = "/session-id/{sessionId}", produces = "application/json")
     public Cart getCartWithSesion(@PathVariable String sessionId){
         return shoppingCartService.getCartWith(sessionId);
     }
