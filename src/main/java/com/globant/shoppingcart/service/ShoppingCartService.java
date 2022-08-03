@@ -4,6 +4,10 @@ import com.globant.shoppingcart.dto.Cart;
 import com.globant.shoppingcart.repository.ShoppingCartRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.LinkedList;
+
 @Service
 public class ShoppingCartService {
 
@@ -14,7 +18,16 @@ public class ShoppingCartService {
     }
 
     public Cart getCartWith(String sessionId){
-        return shoppingCartRepository.findBy(sessionId);
+
+        Cart initCart = Cart.builder()
+                .sessionId(sessionId)
+                .productList(new LinkedList<>())
+                .startDate(LocalDateTime.now())
+                .payDate(null)//TODO remove
+                .orderDate(null)
+                .build();
+
+        return initCart;
     }
 
 }

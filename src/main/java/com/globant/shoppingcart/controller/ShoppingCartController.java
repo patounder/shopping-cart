@@ -4,8 +4,10 @@ import com.globant.shoppingcart.dto.Cart;
 import com.globant.shoppingcart.service.ShoppingCartService;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 @RestController
 @RequestMapping("shopping-cart")
@@ -19,12 +21,16 @@ public class ShoppingCartController {
 
     @GetMapping(value = "/new", produces = "application/json")
     public Cart getEmptyCart(){
-        //TODO define service
-        return new Cart("id-session-res", new LinkedList<>());
+        return new Cart("id-session-res", new LinkedList<>(), LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now());
     }
 
     @GetMapping(value = "/session-id/{sessionId}", produces = "application/json")
-    public Cart getCartWithSesion(@PathVariable String sessionId){
+    public Cart getCartWithSession(@PathVariable String sessionId){
         return shoppingCartService.getCartWith(sessionId);
+    }
+
+    @GetMapping(value = "/sessions/all", produces = "application/json")
+    public List<Cart> getAllCarts(){
+        return new ArrayList<>();
     }
 }
