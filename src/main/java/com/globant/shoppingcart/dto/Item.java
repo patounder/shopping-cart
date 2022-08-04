@@ -18,5 +18,6 @@ public class Item {
     public Item(String sku, float salePrice, int quantity) {
         this.sku = sku;
         this.salePrice = salePrice;
+        this.quantity = quantity;
     }
 }
