@@ -20,11 +20,15 @@ public class Cart {
     private LocalDateTime payDate;
     private LocalDateTime orderDate;
 
-    public Cart(String sessionId, List<Product> productList, LocalDateTime startDate, LocalDateTime payDate, LocalDateTime orderDate) {
+    private Status status;
+
+    public Cart(String sessionId, List<Product> productList, LocalDateTime startDate, LocalDateTime payDate,
+                LocalDateTime orderDate, Status status) {
         this.sessionId = sessionId;
         this.productList = productList;
         this.startDate = startDate;
         this.payDate = payDate;
         this.orderDate = orderDate;
+        this.status = status;
     }
 }

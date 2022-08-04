@@ -1,6 +1,7 @@
 package com.globant.shoppingcart.controller;
 
 import com.globant.shoppingcart.dto.Cart;
+import com.globant.shoppingcart.dto.Status;
 import com.globant.shoppingcart.service.ShoppingCartService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,8 @@ public class ShoppingCartController {
 
     @GetMapping(value = "/new", produces = "application/json")
     public Cart getEmptyCart(){
-        return new Cart("id-session-res", new LinkedList<>(), LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now());
+        return new Cart("id-session-res", new LinkedList<>(), LocalDateTime.now(), LocalDateTime.now(),
+                LocalDateTime.now(), Status.INACTIVE);
     }
 
     @GetMapping(value = "/session-id/{sessionId}", produces = "application/json")
@@ -33,4 +35,5 @@ public class ShoppingCartController {
     public List<Cart> getAllCarts(){
         return new ArrayList<>();
     }
+
 }
