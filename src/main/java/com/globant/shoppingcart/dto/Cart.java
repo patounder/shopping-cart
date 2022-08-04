@@ -15,15 +15,15 @@ import java.util.List;
 public class Cart {
 
     private String sessionId;
-    private List<Product> productList;
+    private List<Item> itemList;
     private LocalDateTime startDate;
     private LocalDateTime orderDate;
 
     private Status status;
 
-    public Cart(String sessionId, List<Product> productList, LocalDateTime startDate, LocalDateTime orderDate, Status status) {
+    public Cart(String sessionId, List<Item> itemList, LocalDateTime startDate, LocalDateTime orderDate, Status status) {
         this.sessionId = sessionId;
-        this.productList = productList;
+        this.itemList = itemList;
         this.startDate = startDate;
         this.orderDate = orderDate;
         this.status = status;

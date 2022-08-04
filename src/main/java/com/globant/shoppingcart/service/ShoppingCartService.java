@@ -4,7 +4,6 @@ import com.globant.shoppingcart.dto.Cart;
 import com.globant.shoppingcart.repository.ShoppingCartRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
@@ -21,7 +20,7 @@ public class ShoppingCartService {
 
         Cart initCart = Cart.builder()
                 .sessionId(sessionId)
-                .productList(new LinkedList<>())
+                .itemList(new LinkedList<>())
                 .startDate(LocalDateTime.now())
                 .orderDate(null)
                 .build();

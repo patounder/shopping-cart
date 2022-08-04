@@ -5,17 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @Builder
-public class Product {
+public class Item {
     private String sku;
     private float salePrice;
 
-    public Product(String sku, float salePrice) {
+    private int quantity;
+
+    public Item(String sku, float salePrice, int quantity) {
         this.sku = sku;
         this.salePrice = salePrice;
     }
