@@ -22,8 +22,7 @@ public class ShoppingCartController {
 
     @GetMapping(value = "/new", produces = "application/json")
     public Cart getEmptyCart(){
-        return new Cart("id-session-res", new LinkedList<>(), LocalDateTime.now(), LocalDateTime.now(),
-                LocalDateTime.now(), Status.INACTIVE);
+        return new Cart("id-session-res", new LinkedList<>(), LocalDateTime.now(), LocalDateTime.now(), Status.INACTIVE);
     }
 
     @GetMapping(value = "/session-id/{sessionId}", produces = "application/json")
@@ -35,5 +34,7 @@ public class ShoppingCartController {
     public List<Cart> getAllCarts(){
         return new ArrayList<>();
     }
+
+
 
 }

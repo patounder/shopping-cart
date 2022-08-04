@@ -11,6 +11,6 @@ import java.util.ArrayList;
 public class ShoppingCartRepository {
 
     public Cart findBy(String sessionId){
-        return new Cart(sessionId, new ArrayList<>(), LocalDateTime.now(), LocalDateTime.now(), LocalDateTime.now(), Status.ACTIVE);
+        return new Cart(sessionId, new ArrayList<>(), LocalDateTime.now(), LocalDateTime.now(), Status.ACTIVE);
     }
 }

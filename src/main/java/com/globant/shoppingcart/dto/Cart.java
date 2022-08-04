@@ -17,17 +17,14 @@ public class Cart {
     private String sessionId;
     private List<Product> productList;
     private LocalDateTime startDate;
-    private LocalDateTime payDate;
     private LocalDateTime orderDate;
 
     private Status status;
 
-    public Cart(String sessionId, List<Product> productList, LocalDateTime startDate, LocalDateTime payDate,
-                LocalDateTime orderDate, Status status) {
+    public Cart(String sessionId, List<Product> productList, LocalDateTime startDate, LocalDateTime orderDate, Status status) {
         this.sessionId = sessionId;
         this.productList = productList;
         this.startDate = startDate;
-        this.payDate = payDate;
         this.orderDate = orderDate;
         this.status = status;
     }

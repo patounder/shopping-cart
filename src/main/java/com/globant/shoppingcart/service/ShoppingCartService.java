@@ -23,7 +23,6 @@ public class ShoppingCartService {
                 .sessionId(sessionId)
                 .productList(new LinkedList<>())
                 .startDate(LocalDateTime.now())
-                .payDate(null)//TODO remove
                 .orderDate(null)
                 .build();
 
