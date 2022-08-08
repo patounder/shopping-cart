@@ -1,8 +1,7 @@
 package com.globant.shoppingcart.service;
 
 import com.globant.shoppingcart.dto.Cart;
-import com.globant.shoppingcart.repository.ShoppingCartRepository;
-import org.springframework.boot.autoconfigure.cache.CacheProperties;
+import com.globant.shoppingcart.repository.CartRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -11,10 +10,10 @@ import java.util.LinkedList;
 @Service
 public class ShoppingCartService {
 
-    ShoppingCartRepository shoppingCartRepository;
+    CartRepository cartRepository;
 
-    public ShoppingCartService(ShoppingCartRepository shoppingCartRepository) {
-        this.shoppingCartRepository = shoppingCartRepository;
+    public ShoppingCartService(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
     }
 
     public Cart getCartWith(String sessionId){
