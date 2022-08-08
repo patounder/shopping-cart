@@ -27,7 +27,7 @@ public class ShoppingCartController {
 
     @GetMapping(value = "/session-id/{sessionId}", produces = "application/json")
     public Cart getCartWithSession(@PathVariable String sessionId){
-        return shoppingCartService.getCartWith(sessionId);
+        return shoppingCartService.getCartWithSessionId(sessionId);
     }
 
     @GetMapping(value = "/sessions/all", produces = "application/json")

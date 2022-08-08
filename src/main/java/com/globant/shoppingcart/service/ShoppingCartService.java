@@ -16,7 +16,7 @@ public class ShoppingCartService {
         this.cartRepository = cartRepository;
     }
 
-    public Cart getCartWith(String sessionId){
+    public Cart getCartWithSessionId(String sessionId){
 
         Cart initCart = Cart.builder()
                 .sessionId(sessionId)
