@@ -1,7 +1,6 @@
 package com.globant.shoppingcart.entity;
 
-
-import com.globant.shoppingcart.dto.Item;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,21 +10,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.util.List;
 
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@Builder
 public class CartEntity {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String sessionId;
     private LocalDateTime startDate;
     private LocalDateTime orderDate;
 
     public CartEntity(String sessionId, LocalDateTime startDate, LocalDateTime orderDate) {
+        this.sessionId = sessionId;
+        this.startDate = startDate;
+        this.orderDate = orderDate;
+    }
+
+    public CartEntity(long id, String sessionId, LocalDateTime startDate, LocalDateTime orderDate) {
+        this.id = id;
         this.sessionId = sessionId;
         this.startDate = startDate;
         this.orderDate = orderDate;

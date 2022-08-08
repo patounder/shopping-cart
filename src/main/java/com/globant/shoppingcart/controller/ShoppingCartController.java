@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @RestController
-@RequestMapping("shopping-cart")
+@RequestMapping("v1")
 public class ShoppingCartController {
 
     ShoppingCartService shoppingCartService;
@@ -20,25 +20,25 @@ public class ShoppingCartController {
         this.shoppingCartService = shoppingCartService;
     }
 
-    @GetMapping(value = "/new", produces = "application/json")
+    @GetMapping(value = "/shopping-cart/new", produces = "application/json")
     public Cart getEmptyCart(){
         return new Cart("id-session-res", new LinkedList<>(), LocalDateTime.now(), LocalDateTime.now(), Status.INACTIVE);
     }
 
-    @GetMapping(value = "/session-id/{sessionId}", produces = "application/json")
+    @GetMapping(value = "/shopping-cart/session-id/{sessionId}", produces = "application/json")
     public Cart getCartWithSession(@PathVariable String sessionId){
         return shoppingCartService.getCartWithSessionId(sessionId);
     }
 
-    @GetMapping(value = "/sessions/all", produces = "application/json")
-    public List<Cart> getAllCarts(){
+    @GetMapping(value = "/shopping-cart", produces = "application/json")
+    public List<Cart> getCarts(){
         return new ArrayList<>();
     }
 
     //Create services
-    public Cart updateCart(Cart updateCart){
+    @PostMapping(value = "/shopping-cart")
+    public Cart newCart(@RequestBody Cart updateCart){
         return shoppingCartService.save(updateCart);
     }
-
 
 }
