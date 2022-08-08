@@ -2,6 +2,7 @@ package com.globant.shoppingcart.service;
 
 import com.globant.shoppingcart.dto.Cart;
 import com.globant.shoppingcart.repository.ShoppingCartRepository;
+import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -28,4 +29,8 @@ public class ShoppingCartService {
         return initCart;
     }
 
+
+    public Cart save(Cart updateCart){
+        return updateCart;
+    }
 }

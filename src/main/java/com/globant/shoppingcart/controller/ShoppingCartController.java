@@ -35,6 +35,10 @@ public class ShoppingCartController {
         return new ArrayList<>();
     }
 
+    //Create services
+    public Cart updateCart(Cart updateCart){
+        return shoppingCartService.save(updateCart);
+    }
 
 
 }
