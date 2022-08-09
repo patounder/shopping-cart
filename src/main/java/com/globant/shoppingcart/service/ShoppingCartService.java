@@ -31,10 +31,10 @@ public class ShoppingCartService {
 
 
     public Cart save(Cart updateCart){
-        CartEntity entity = new CartEntity("sessionIdApp", LocalDateTime.now(), LocalDateTime.now());
+        CartEntity entity = new CartEntity(updateCart.getSessionId(), LocalDateTime.now(), LocalDateTime.now());
         cartRepository.save(entity);
-        Cart cartResponse = Cart.builder().sessionId(entity.getSessionId())
+        //TODO catch when duplicated session-id
+        return Cart.builder().sessionId(entity.getSessionId())
                 .createDate(entity.getStartDate()).orderDate(entity.getOrderDate()).build();
-        return cartResponse;
     }
 }
