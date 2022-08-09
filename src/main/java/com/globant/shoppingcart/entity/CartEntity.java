@@ -18,20 +18,11 @@ import java.time.LocalDateTime;
 @Builder
 public class CartEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     private String sessionId;
     private LocalDateTime startDate;
     private LocalDateTime orderDate;
 
     public CartEntity(String sessionId, LocalDateTime startDate, LocalDateTime orderDate) {
-        this.sessionId = sessionId;
-        this.startDate = startDate;
-        this.orderDate = orderDate;
-    }
-
-    public CartEntity(long id, String sessionId, LocalDateTime startDate, LocalDateTime orderDate) {
-        this.id = id;
         this.sessionId = sessionId;
         this.startDate = startDate;
         this.orderDate = orderDate;
