@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
@@ -19,12 +17,12 @@ import java.time.LocalDateTime;
 public class CartEntity {
     @Id
     private String sessionId;
-    private LocalDateTime startDate;
+    private LocalDateTime createDate;
     private LocalDateTime orderDate;
 
-    public CartEntity(String sessionId, LocalDateTime startDate, LocalDateTime orderDate) {
+    public CartEntity(String sessionId, LocalDateTime createDate, LocalDateTime orderDate) {
         this.sessionId = sessionId;
-        this.startDate = startDate;
+        this.createDate = createDate;
         this.orderDate = orderDate;
     }
 }

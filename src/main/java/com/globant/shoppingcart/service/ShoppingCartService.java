@@ -35,6 +35,6 @@ public class ShoppingCartService {
         cartRepository.save(entity);
         //TODO catch when duplicated session-id
         return Cart.builder().sessionId(entity.getSessionId())
-                .createDate(entity.getStartDate()).orderDate(entity.getOrderDate()).build();
+                .createDate(entity.getCreateDate()).orderDate(entity.getOrderDate()).build();
     }
 }
