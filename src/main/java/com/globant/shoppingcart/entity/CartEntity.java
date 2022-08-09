@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,9 +22,12 @@ public class CartEntity {
     private LocalDateTime createDate;
     private LocalDateTime orderDate;
 
-    public CartEntity(String sessionId, LocalDateTime createDate, LocalDateTime orderDate) {
+    @OneToMany
+    private List<ItemEntity> itemList; //TODO associate id (sku) with cart (session-id)
+    public CartEntity(String sessionId, LocalDateTime createDate, LocalDateTime orderDate, List<ItemEntity> itemList) {
         this.sessionId = sessionId;
         this.createDate = createDate;
         this.orderDate = orderDate;
+        this.itemList = itemList;
     }
 }

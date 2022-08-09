@@ -31,7 +31,7 @@ public class ShoppingCartService {
 
 
     public Cart save(Cart updateCart){
-        CartEntity entity = new CartEntity(updateCart.getSessionId(), LocalDateTime.now(), LocalDateTime.now());
+        CartEntity entity = new CartEntity(updateCart.getSessionId(), LocalDateTime.now(), LocalDateTime.now(), null);
         cartRepository.save(entity);
         //TODO catch when duplicated session-id
         return Cart.builder().sessionId(entity.getSessionId())
