@@ -22,7 +22,7 @@ public class ShoppingCartService {
         Cart initCart = Cart.builder()
                 .sessionId(sessionId)
                 .itemList(new LinkedList<>())
-                .startDate(LocalDateTime.now())
+                .createDate(LocalDateTime.now())
                 .orderDate(null)
                 .build();
 
@@ -34,7 +34,7 @@ public class ShoppingCartService {
         CartEntity entity = new CartEntity("sessionIdApp", LocalDateTime.now(), LocalDateTime.now());
         cartRepository.save(entity);
         Cart cartResponse = Cart.builder().sessionId(entity.getSessionId())
-                .startDate(entity.getStartDate()).orderDate(entity.getOrderDate()).build();
+                .createDate(entity.getStartDate()).orderDate(entity.getOrderDate()).build();
         return cartResponse;
     }
 }

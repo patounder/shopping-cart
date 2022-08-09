@@ -16,15 +16,15 @@ public class Cart {
 
     private String sessionId;
     private List<Item> itemList;
-    private LocalDateTime startDate;
+    private LocalDateTime createDate;
     private LocalDateTime orderDate;
 
     private Status status;
 
-    public Cart(String sessionId, List<Item> itemList, LocalDateTime startDate, LocalDateTime orderDate, Status status) {
+    public Cart(String sessionId, List<Item> itemList, LocalDateTime createDate, LocalDateTime orderDate, Status status) {
         this.sessionId = sessionId;
         this.itemList = itemList;
-        this.startDate = startDate;
+        this.createDate = createDate;
         this.orderDate = orderDate;
         this.status = status;
     }
