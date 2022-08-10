@@ -1,6 +1,6 @@
 package com.globant.shoppingcart.service;
 
-import com.globant.shoppingcart.entity.Cart;
+import com.globant.shoppingcart.model.Cart;
 import com.globant.shoppingcart.repository.CartRepository;
 import org.springframework.stereotype.Service;
 

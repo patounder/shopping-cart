@@ -1,6 +1,6 @@
 package com.globant.shoppingcart.repository;
 
-import com.globant.shoppingcart.entity.Cart;
+import com.globant.shoppingcart.model.Cart;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

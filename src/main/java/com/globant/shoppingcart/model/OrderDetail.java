@@ -1,4 +1,4 @@
-package com.globant.shoppingcart.entity;
+package com.globant.shoppingcart.model;
 
 import lombok.Builder;
 import lombok.Getter;
