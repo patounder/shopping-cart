@@ -21,11 +21,13 @@ public class CartEntity {
     private String sessionId;
     private LocalDateTime orderDate;
 
+    //TODO associate id (sku) with cart (session-id)
     @OneToMany
-    private List<ItemEntity> itemList; //TODO associate id (sku) with cart (session-id)
-    public CartEntity(String sessionId, LocalDateTime orderDate, List<ItemEntity> itemList) {
+    private List<OrderDetailEntity> orderDetailList;
+
+    public CartEntity(String sessionId, LocalDateTime orderDate, List<OrderDetailEntity> orderDetailList) {
         this.sessionId = sessionId;
         this.orderDate = orderDate;
-        this.itemList = itemList;
+        this.orderDetailList = orderDetailList;
     }
 }
