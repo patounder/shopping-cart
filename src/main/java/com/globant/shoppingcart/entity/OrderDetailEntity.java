@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -17,20 +18,17 @@ import javax.persistence.ManyToOne;
 public class OrderDetailEntity {
 
     @Id
-    private long id;
+    @GeneratedValue
+    private Long id;
 
     @ManyToOne
     private CartEntity cart;
 
-    @ManyToOne
-    private ItemEntity item;
-
     private int quantity;
 
-    public OrderDetailEntity(long id, CartEntity cart, ItemEntity item, int quantity) {
+    public OrderDetailEntity(Long id, CartEntity cart, int quantity) {
         this.id = id;
         this.cart = cart;
-        this.item = item;
         this.quantity = quantity;
     }
 }

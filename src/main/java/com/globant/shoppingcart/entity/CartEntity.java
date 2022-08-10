@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,6 +24,7 @@ public class CartEntity {
 
     //TODO associate id (sku) with cart (session-id)
     @OneToMany
+    @JoinColumn(name = "order_detail_id")
     private List<OrderDetailEntity> orderDetailList;
 
     public CartEntity(String sessionId, LocalDateTime orderDate, List<OrderDetailEntity> orderDetailList) {
