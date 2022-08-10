@@ -9,9 +9,9 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
 @Builder
+@Entity
 public class OrderDetail {
 
     @Id
