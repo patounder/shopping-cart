@@ -3,6 +3,5 @@
 ## Tecnologies Used:
 
 - Jetty
-- Annotations: RestController
 - Cache
 - Docker y Docker Compose

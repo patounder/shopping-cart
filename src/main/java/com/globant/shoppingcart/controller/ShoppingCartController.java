@@ -1,13 +1,11 @@
 package com.globant.shoppingcart.controller;
 
-import com.globant.shoppingcart.dto.Cart;
-import com.globant.shoppingcart.dto.Status;
+import com.globant.shoppingcart.dto.CartDTO;
 import com.globant.shoppingcart.service.ShoppingCartService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -20,25 +18,19 @@ public class ShoppingCartController {
         this.shoppingCartService = shoppingCartService;
     }
 
-    @GetMapping(value = "/shopping-cart/new", produces = "application/json")
-    public Cart getEmptyCart(){
-        return new Cart("id-session-res", new LinkedList<>(), LocalDateTime.now(), Status.INACTIVE);
+    @PostMapping(value = "/shopping-cart")
+    public ResponseEntity<CartDTO> saveCart(@RequestBody CartDTO cartDTOToSave){
+         shoppingCartService.save(cartDTOToSave);
+         return ResponseEntity.ok(new CartDTO());
     }
 
     @GetMapping(value = "/shopping-cart/session-id/{sessionId}", produces = "application/json")
-    public Cart getCartWithSession(@PathVariable String sessionId){
+    public CartDTO getCartWithSession(@PathVariable String sessionId){
         return shoppingCartService.getCartWithSessionId(sessionId);
     }
 
     @GetMapping(value = "/shopping-cart", produces = "application/json")
-    public List<Cart> getCarts(){
+    public List<CartDTO> getCarts(){
         return new ArrayList<>();
     }
-
-    //Create services
-    @PostMapping(value = "/shopping-cart")
-    public Cart newCart(@RequestBody Cart updateCart){
-        return shoppingCartService.save(updateCart);
-    }
-
 }

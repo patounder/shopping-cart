@@ -1,5 +1,6 @@
 package com.globant.shoppingcart.dto;
 
+import com.globant.shoppingcart.model.OrderDetail;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,18 +13,17 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Builder
-public class Cart {
+public class CartDTO {
 
     private String sessionId;
-    private List<Item> itemList;
     private LocalDateTime orderDate;
-
+    private List<OrderDetail> orderDetailList;
     private Status status;
 
-    public Cart(String sessionId, List<Item> itemList, LocalDateTime orderDate, Status status) {
+    public CartDTO(String sessionId, LocalDateTime orderDate, List<OrderDetail> orderDetailList, Status status) {
         this.sessionId = sessionId;
-        this.itemList = itemList;
         this.orderDate = orderDate;
+        this.orderDetailList = orderDetailList;
         this.status = status;
     }
 }

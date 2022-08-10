@@ -9,13 +9,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Builder
-public class Item {
+public class ItemDTO {
     private String sku;
     private String name;
     private float salePrice;
     private int quantity;
 
-    public Item(String sku, String name, float salePrice, int quantity) {
+    public ItemDTO(String sku, String name, float salePrice, int quantity) {
         this.sku = sku;
         this.name = name;
         this.salePrice = salePrice;
