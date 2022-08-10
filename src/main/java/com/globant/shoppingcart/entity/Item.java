@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,9 +24,12 @@ public class Item {
 
     private float price;
 
-    public Item(String sku, String name, float price) {
+    @OneToMany(mappedBy = "item")
+    private List<OrderDetail> orderDetailsList;
+    public Item(String sku, String name, float price, List<OrderDetail> orderDetailsList) {
         this.sku = sku;
         this.name = name;
         this.price = price;
+        this.orderDetailsList = orderDetailsList;
     }
 }
