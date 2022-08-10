@@ -19,14 +19,12 @@ import java.util.List;
 public class CartEntity {
     @Id
     private String sessionId;
-    private LocalDateTime createDate;
     private LocalDateTime orderDate;
 
     @OneToMany
     private List<ItemEntity> itemList; //TODO associate id (sku) with cart (session-id)
-    public CartEntity(String sessionId, LocalDateTime createDate, LocalDateTime orderDate, List<ItemEntity> itemList) {
+    public CartEntity(String sessionId, LocalDateTime orderDate, List<ItemEntity> itemList) {
         this.sessionId = sessionId;
-        this.createDate = createDate;
         this.orderDate = orderDate;
         this.itemList = itemList;
     }

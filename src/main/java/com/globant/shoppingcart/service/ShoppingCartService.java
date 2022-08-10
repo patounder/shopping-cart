@@ -22,7 +22,6 @@ public class ShoppingCartService {
         Cart initCart = Cart.builder()
                 .sessionId(sessionId)
                 .itemList(new LinkedList<>())
-                .createDate(LocalDateTime.now())
                 .orderDate(null)
                 .build();
 
@@ -31,10 +30,9 @@ public class ShoppingCartService {
 
 
     public Cart save(Cart updateCart){
-        CartEntity entity = new CartEntity(updateCart.getSessionId(), LocalDateTime.now(), LocalDateTime.now(), null);
+        CartEntity entity = new CartEntity(updateCart.getSessionId(), LocalDateTime.now(), null);
         cartRepository.save(entity);
         //TODO catch when duplicated session-id
-        return Cart.builder().sessionId(entity.getSessionId())
-                .createDate(entity.getCreateDate()).orderDate(entity.getOrderDate()).build();
+        return Cart.builder().sessionId(entity.getSessionId()).orderDate(entity.getOrderDate()).build();
     }
 }
