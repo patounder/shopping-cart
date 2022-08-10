@@ -17,12 +17,14 @@ public class ItemEntity {
 
     @Id
     private String sku;
-    private String name;
-    private int quantity;
 
-    public ItemEntity(String sku, String name, int quantity) {
+    private String name;
+
+    private float price;
+
+    public ItemEntity(String sku, String name, float price) {
         this.sku = sku;
         this.name = name;
-        this.quantity = quantity;
+        this.price = price;
     }
 }
