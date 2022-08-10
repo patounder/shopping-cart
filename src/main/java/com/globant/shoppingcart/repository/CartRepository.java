@@ -1,12 +1,12 @@
 package com.globant.shoppingcart.repository;
 
-import com.globant.shoppingcart.entity.CartEntity;
+import com.globant.shoppingcart.entity.Cart;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface CartRepository extends CrudRepository<CartEntity, Long> {
+public interface CartRepository extends CrudRepository<Cart, Long> {
 
-    public CartEntity findBySessionId(String sessionId);
+    public Cart findBySessionId(String sessionId);
 }

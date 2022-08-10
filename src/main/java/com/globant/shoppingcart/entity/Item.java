@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 @Builder
-public class ItemEntity {
+public class Item {
 
     @Id
     private String sku;
@@ -22,7 +22,7 @@ public class ItemEntity {
 
     private float price;
 
-    public ItemEntity(String sku, String name, float price) {
+    public Item(String sku, String name, float price) {
         this.sku = sku;
         this.name = name;
         this.price = price;

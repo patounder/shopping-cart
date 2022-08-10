@@ -15,18 +15,18 @@ import javax.persistence.ManyToOne;
 @Entity
 @NoArgsConstructor
 @Builder
-public class OrderDetailEntity {
+public class OrderDetail {
 
     @Id
     @GeneratedValue
     private Long id;
 
     @ManyToOne
-    private CartEntity cart;
+    private Cart cart;
 
     private int quantity;
 
-    public OrderDetailEntity(Long id, CartEntity cart, int quantity) {
+    public OrderDetail(Long id, Cart cart, int quantity) {
         this.id = id;
         this.cart = cart;
         this.quantity = quantity;

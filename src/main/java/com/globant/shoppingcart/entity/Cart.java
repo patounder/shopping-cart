@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Builder
-public class CartEntity {
+public class Cart {
     @Id
     private String sessionId;
     private LocalDateTime orderDate;
@@ -25,9 +25,9 @@ public class CartEntity {
     //TODO associate id (sku) with cart (session-id)
     @OneToMany
     @JoinColumn(name = "order_detail_id")
-    private List<OrderDetailEntity> orderDetailList;
+    private List<OrderDetail> orderDetailList;
 
-    public CartEntity(String sessionId, LocalDateTime orderDate, List<OrderDetailEntity> orderDetailList) {
+    public Cart(String sessionId, LocalDateTime orderDate, List<OrderDetail> orderDetailList) {
         this.sessionId = sessionId;
         this.orderDate = orderDate;
         this.orderDetailList = orderDetailList;
