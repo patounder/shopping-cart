@@ -17,10 +17,10 @@ public class CartDTO {
 
     private String sessionId;
     private LocalDateTime orderDate;
-    private List<OrderDetail> orderDetailList;
+    private List<OrderDetailDTO> orderDetailList;
     private Status status;
 
-    public CartDTO(String sessionId, LocalDateTime orderDate, List<OrderDetail> orderDetailList, Status status) {
+    public CartDTO(String sessionId, LocalDateTime orderDate, List<OrderDetailDTO> orderDetailList, Status status) {
         this.sessionId = sessionId;
         this.orderDate = orderDate;
         this.orderDetailList = orderDetailList;

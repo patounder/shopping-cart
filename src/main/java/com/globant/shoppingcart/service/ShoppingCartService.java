@@ -1,12 +1,17 @@
 package com.globant.shoppingcart.service;
 
 import com.globant.shoppingcart.dto.CartDTO;
+import com.globant.shoppingcart.dto.ItemDTO;
 import com.globant.shoppingcart.model.Cart;
+import com.globant.shoppingcart.model.Item;
+import com.globant.shoppingcart.model.OrderDetail;
 import com.globant.shoppingcart.repository.CartRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ShoppingCartService {
@@ -29,9 +34,23 @@ public class ShoppingCartService {
     }
 
     public CartDTO save(CartDTO updateCartDTO){
-        Cart entity = new Cart(updateCartDTO.getSessionId(), LocalDateTime.now(), updateCartDTO.getOrderDetailList());
+
+        List<OrderDetail> orderDetailList = updateCartDTO.getOrderDetailList()
+                .stream().map(orderDetailDTO -> {
+                    Item item = Item.builder()
+                            .sku(orderDetailDTO.getItem().getSku())
+                            .name(orderDetailDTO.getItem().getName())
+                            .price(orderDetailDTO.getItem().getSalePrice())
+                            .build();
+                    return OrderDetail.builder().quantity(orderDetailDTO.getQuantity()).item(item).build();
+                }).collect(Collectors.toList());
+
+        Cart entity = new Cart(updateCartDTO.getSessionId(), LocalDateTime.now(), orderDetailList);
         Cart response = cartRepository.save(entity);
 
-        return CartDTO.builder().sessionId(response.getSessionId()).orderDate(response.getOrderDate()).orderDetailList(response.getOrderDetailList()).status(null).build();
+        return CartDTO.builder()
+                .sessionId(response.getSessionId())
+                .orderDate(response.getOrderDate())
+                .orderDetailList(null).status(null).build();
     }
 }
