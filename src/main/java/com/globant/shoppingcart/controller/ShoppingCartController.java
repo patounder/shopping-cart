@@ -30,7 +30,8 @@ public class ShoppingCartController {
     }
 
     @GetMapping(value = "/shopping-cart", produces = "application/json")
-    public List<CartDTO> getCarts(){
-        return new ArrayList<>();
+    public ResponseEntity<List<CartDTO>> getCarts(){
+        List<CartDTO> allCartList = this.shoppingCartService.getAllCarts();
+        return ResponseEntity.ok(allCartList);
     }
 }

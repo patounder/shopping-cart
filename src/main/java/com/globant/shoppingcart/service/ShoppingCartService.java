@@ -9,6 +9,7 @@ import com.globant.shoppingcart.repository.CartRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,5 +53,19 @@ public class ShoppingCartService {
                 .sessionId(response.getSessionId())
                 .orderDate(response.getOrderDate())
                 .orderDetailList(null).status(null).build();
+    }
+
+    public List<CartDTO> getAllCarts(){
+        List<Cart> cartList = (List<Cart>) this.cartRepository.findAll();
+
+        List<CartDTO> cartListResponse =
+        cartList.stream().map(cart -> {
+            return CartDTO.builder()
+                    .sessionId(cart.getSessionId())
+                    .orderDate(cart.getOrderDate())
+                    .build();
+        }).collect(Collectors.toList());
+
+        return cartListResponse;
     }
 }
