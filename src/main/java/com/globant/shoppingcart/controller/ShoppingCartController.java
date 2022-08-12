@@ -2,6 +2,7 @@ package com.globant.shoppingcart.controller;
 
 import com.globant.shoppingcart.dto.CartDTO;
 import com.globant.shoppingcart.service.ShoppingCartService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,8 @@ import org.slf4j.Logger;
 
 @RestController
 @RequestMapping("v1")
+@Slf4j
 public class ShoppingCartController {
-
-    private final static Logger logger = LoggerFactory.getLogger(ShoppingCartController.class);
 
     ShoppingCartService shoppingCartService;
 
@@ -34,7 +34,7 @@ public class ShoppingCartController {
 
     @GetMapping(value = "/shopping-cart", produces = "application/json")
     public ResponseEntity<List<CartDTO>> getCarts(){
-        logger.debug("request get all carts");
+        log.debug("request get all carts");
         List<CartDTO> allCartList = this.shoppingCartService.getAllCarts();
         return ResponseEntity.ok(allCartList);
     }
