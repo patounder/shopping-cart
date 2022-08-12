@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-public class OrderDetail {
+public class ItemOrder {
 
     @Id
     @GeneratedValue
@@ -27,7 +27,7 @@ public class OrderDetail {
     @JoinColumn(name = "item_sku")
     private Item item;
 
-    public OrderDetail(Long id, int quantity, Cart cart, Item item) {
+    public ItemOrder(Long id, int quantity, Cart cart, Item item) {
         this.id = id;
         this.quantity = quantity;
         this.cart = cart;

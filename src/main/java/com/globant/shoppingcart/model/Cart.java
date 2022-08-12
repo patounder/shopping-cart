@@ -8,7 +8,6 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,11 +22,11 @@ public class Cart {
     private LocalDateTime orderDate;
 
     @OneToMany(mappedBy = "cart")
-    private List<OrderDetail> orderDetailList;
+    private List<ItemOrder> itemOrderList;
 
-    public Cart(String sessionId, LocalDateTime orderDate, List<OrderDetail> orderDetailList) {
+    public Cart(String sessionId, LocalDateTime orderDate, List<ItemOrder> itemOrderList) {
         this.sessionId = sessionId;
         this.orderDate = orderDate;
-        this.orderDetailList = orderDetailList;
+        this.itemOrderList = itemOrderList;
     }
 }

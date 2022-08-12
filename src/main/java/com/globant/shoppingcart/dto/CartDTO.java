@@ -1,6 +1,5 @@
 package com.globant.shoppingcart.dto;
 
-import com.globant.shoppingcart.model.OrderDetail;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
