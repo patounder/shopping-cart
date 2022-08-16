@@ -49,7 +49,7 @@ public class ShoppingCartController {
 
     @PostMapping(value = "/test-message/{msg}")
     public boolean postMessage(@PathVariable String msg){
-        log.info("request post message:{}", msg);
+        log.info("request post message: {}", msg);
         return publisher.postMessage(msg);
     }
 }
