@@ -19,11 +19,6 @@ import org.slf4j.Logger;
 public class ShoppingCartController {
 
     ShoppingCartService shoppingCartService;
-    @Autowired
-    Publisher publisher;
-
-    @Autowired
-    Listener listener;
 
     public ShoppingCartController(ShoppingCartService shoppingCartService) {
         this.shoppingCartService = shoppingCartService;
@@ -45,11 +40,5 @@ public class ShoppingCartController {
         log.debug("request get all carts");
         List<CartDTO> allCartList = this.shoppingCartService.getAllCarts();
         return ResponseEntity.ok(allCartList);
-    }
-
-    @PostMapping(value = "/test-message/{msg}")
-    public boolean postMessage(@PathVariable String msg){
-        log.info("request post message: {}", msg);
-        return publisher.postMessage(msg);
     }
 }
