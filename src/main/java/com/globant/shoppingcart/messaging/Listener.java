@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class Listener {
 
-    @RabbitListener(queues = "${listener.queue.name}")
+    @RabbitListener(queues = "${listen.queue.name}")
     public void listen(String in) {
         log.info("Message read from testQueue: {} ", in);
     }

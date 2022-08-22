@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class RabbitMQConfig {
 
-    @Value("${listener.queue.name}")
+    @Value("${listen.queue.name}")
     private String queueName;
     @Bean
     public Queue myQueue() {
